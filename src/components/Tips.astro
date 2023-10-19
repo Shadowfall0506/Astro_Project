@@ -1,0 +1,52 @@
+---
+const tipsData = [
+    {title: 'Settings for camera', body: "Keep iso 800, exposure at 30seconds and white balance at 4500k for crisp image.", image:"star fas fa-star checked"},
+    {title: 'BirdCras imperdiet, dolor posuere', body: 'Elit nec tempus suscipit, enim nibh aliquam eros, sit amet iaculis nibh Vestibulum condimentum, nibh at dolor. Vivamus vitae condimentum dignissim dapibus, tortor arcu pellentesque orci, et mattis libero justo semper neque.', image:"star fas fa-star checked"},
+    {title: 'Elit nec tempus suscipit', body: 'Cras imperdiet, dolor posuere dignissim dapibus, tortor arcu pellentesque orci, et mattis libero justo semper neque.Vivamus vitae condimentum. Elit nec tempus suscipit, enim nibh aliquam eros, sit amet iaculis nibh nibh at dolor.', image:"star fas fa-star"}
+];
+
+import Card from "./Card.astro";
+
+let sNo = 1;
+---
+<section class="tips">
+    <div class="container">
+        <div class="slider-wrapper1">
+            <div class="slider1"></div>
+                {tipsData.map( tip => (
+                    <Card id = {'slide${sNo}'} dark= {false}>
+                        <h3>{tip.title}</h3>
+                        <p>{tip.body}</p>
+                        <i class={tip.image}></i>
+                        <i>slide{sNo}</i>
+                    </Card>
+                   
+                ))}
+            </div>
+        </div>
+        <div class="slider-nav">
+            <a href="#slide1"></a>
+            <a href="#slide2"></a>
+            <a href="#slide3"></a>
+            <a href="#slide4"></a>					
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Tips */
+    .tips .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 0 20px;
+        margin: 30px auto;
+    }
+
+    @media (max-width: 500px) {
+        .tips .container {
+            grid-template-columns: 1fr;
+         }
+    }
+    
+  </style>
