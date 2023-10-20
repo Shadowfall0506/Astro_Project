@@ -8,6 +8,7 @@ import { slide } from 'astro:transitions';
 import Showcase from '../components/Showcase.astro';
 import Features from '../components/Features.astro';
 import Tabs from '../components/Tabs.astro';
+import Tips from '../components/Tips.astro';
 
 export const prerender = true
 ---
@@ -15,15 +16,19 @@ export const prerender = true
 <Layout title="Welcome to Galaxy">
 	<Main>
 		<!--<H1 text="Galaxy HUB"/> -->
-		<Showcase />
-		<Features />
+		<Showcase showExtra={true}/>
+		
 		<section class="page-content">
 			<div class="container">
-			  <h2>Get Started With Astro</h2>
-			  <p>
-				Get a new Astro project up and running locally with our helpful
-				create-astro CLI wizard!
-			  </p>
+				<h2>Introducing to Astro Tonight</h2>
+				<Features />
+				<!--<h2>Tips</h2>
+				<Tips />-->
+			  	<h2>Get Started With Astro</h2>
+			  	<p>
+					Get a new Astro project up and running locally with our helpful
+					create-astro CLI wizard!
+			  	</p>		
 			  
 			  <Tabs headings = {['PM', 'Lead', 'Developer']} contents =
 			  {['Denis Anthony', 'Rajaesh Khanna', 'Amit Kumar']}/>

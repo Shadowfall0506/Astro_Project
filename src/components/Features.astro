@@ -1,8 +1,8 @@
 ---
 const featuresData = [
-    {title: 'Zero Javascript Runtime', body: 'Astro renders HTML on the server and strips away any remaining, unused Javascript.'},
-    {title: 'The power of Islands', body: 'Need interactive UI? Load Individual, non-blocking component islands in parallel.'},
-    {title: 'Lazy Loading Islands', body: 'Components only hydrate when they scroll into view. If you dontsee it, Astro wont load it.'}
+    {title: 'Astro Photography', body: "Astrophotography is a type of photography that captures a celestial object or events. Essentially, if in space and you capture it with a camera, you're engaging in astrophotography.", image:"fas fa-camera fa-4x tm-icon-1"},
+    {title: 'Bird Watching', body: 'Birdwatching, or birding, is the observing of birds, either as a recreational activity or as a form of citizen science. A birdwatcher may observe by using their naked eye, by using a visual enhancement device like binoculars or a telescope.', image:"fas fa-binoculars fa-4x tm-icon-1"},
+    {title: 'Stargazing Locations', body: '6 best places to stargazing near Mumbai are Mahuli, Dehene, Bhandardara, Vaiterna and Naneghat, you can visit their and Enjoy Stargazing Night.', image:"fas fa-star fa-4x tm-icon-1"}
 ];
 
 import Card from "./Card.astro";
@@ -10,7 +10,8 @@ import Card from "./Card.astro";
 <section class="features">
     <div class="container">
       {featuresData.map(feature => (
-        <Card dark= {true}>
+        <Card dark= {false}>
+          <i class={feature.image}></i>
             <h3>{feature.title}</h3>
             <p>{feature.body}</p>
         </Card> 

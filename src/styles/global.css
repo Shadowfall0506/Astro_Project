@@ -1,6 +1,7 @@
 :root {
     --color-primary: #0f172a;
-    --color-secondary: #1e5a4a;
+    /*--color-secondary: #1e5a4a;*/
+    --color-secondary: DodgerBlue;
   }
   
   *,
@@ -40,6 +41,7 @@
   h2,
   h3 {
     line-height: 1.2;
+    color: var(--color-secondary);
   }
   
   .container {
@@ -100,3 +102,5 @@
     }
 
   }
+
+  
