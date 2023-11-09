@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Layout from '../layouts/Layout.astro';
+import Showcase from '../components/Showcase.astro';
+import Main from '../components/Main.astro';
+import Newgallery from '../components/Newgallery.astro';
+import Modal from "../components/Modal.astro";
+import GallList from '../components/GallList.astro';
+
+const galleryStock = await getCollection("galleryStock");
+console.log(galleryStock)
+
+---
+<Layout title='Space Gallery | Astro Tonight'>
+    <Main>
+        <Showcase heading='Space Gallery', text='Explore the infinite possibilities of Astro'/>
+        <Newgallery/>
+        <Modal/>
+    </Main>
+
+    <!-- <section class="page-content">
+		<div class="container">
+			{galleryStock.map(gall => (
+				<GallList galleryStock={galleryStock}/>
+			))}
+		</div>
+	</section> -->
+</Layout>

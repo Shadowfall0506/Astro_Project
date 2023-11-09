@@ -7,57 +7,342 @@ import Showcase from "../components/Showcase.astro";
 import logos from "../images/deploy-logos.png";
 import logosSmall from "../images/deploy-logos-small.png";
 */
+
+const teamData = [
+    {name: "Denis Anthony", title: "Project Manager", fb_url: "https://facebook.com", tw_url: "https://twitter.com", yt_url: "https://youtube.com", insta_url: "https://instagram.com", image:"/images/denisanthony.webp"},
+    {name: "Bhavya Bhasin", title: "Team Leader", fb_url: "https://facebook.com", tw_url: "https://twitter.com", yt_url: "https://youtube.com", insta_url: "https://instagram.com", image:"/images/people-01.jpg"},
+    {name: "Bilal Mullaji", title: "Team Member", fb_url: "https://facebook.com", tw_url: "https://twitter.com", yt_url: "https://youtube.com", insta_url: "https://instagram.com", image:"/images/people-02.jpg"},
+    {name: "Om Dhamdhere", title: "Team Member", fb_url: "https://facebook.com", tw_url: "https://twitter.com", yt_url: "https://youtube.com", insta_url: "https://instagram.com", image:"/images/people-03.jpg"}
+  ];
 ---
 
 <Layout title="About Astro Tonight">
     <Showcase heading="About Astro Tonight" text="Explore the infinite possibilities of Astro"/>
     <section class="page-content">
         <div class="container">
-          <h2>About Astro Tonight</h2>
+          <h2 class="font-semibold">About Astro Tonight</h2>
           <p>
             At Astro’s Tonight, the night sky is your canvas, and our mission is to help you capture the beauty of the stars. Whether you're in need of inspiration, tips on capturing the best shots, or simply want to immerse yourself in the wonders of the universe, our website is the perfect place to start.
           </p>
   
+          <!-- 
           <Card dark= {true}>
             <h3>Use the tools you already love</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsum
               deserunt inventore ut voluptate, officia maiores repellat tenetur
-              praesentium omnis est ex tempora a necessitatibus reiciendis at et
-              dignissimos. Ipsam eius consequuntur cupiditate aperiam porro, esse
-              laborum impedit nesciunt ut voluptatum assumenda aspernatur libero
-              iusto error molestias dolorum, necessitatibus labore?
             </p>
           </Card>
-          
+          -->
           <h3>Our Team Members</h3>
-          <img class="logos" src="/images/deploy-logos.png" alt="" />
-          <img class="logos-small" src="/images/deploy-logos-small.png" alt="" />
+          <section class="col-12">
+            <div class="tm-members">
+              {teamData.map(tData => (
+                <div class="tm-members">
+                  <figure class="text-center effect-bubba mb-4">
+                    <img src= {tData.image} alt="Team Member" class="img-fluid">
+                    <div class="text-center">
+                      <h3 class="white-text">{tData.name}</h3>
+                      <text>{tData.title}</text>
+                    </div>
+                    <figcaption>
+                      <div class="tm-member-social">
+                          <a href={tData.fb_url} class="tm-member-social-link"><i class="fab fa-facebook tm-member-social-icon"></i></a>
+                          <a href={tData.tw_url} class="tm-member-social-link"><i class="fab fa-twitter tm-member-social-icon"></i></a>
+                          <a href={tData.yt_url} class="tm-member-social-link"><i class="fab fa-youtube tm-member-social-icon"></i></a>
+                          <a href={tData.insta_url} class="tm-member-social-link"><i class="fab fa-instagram tm-member-social-icon"></i></a>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </div>
+              ))}
+            </div>
+          </section>
+          <h3>Join our Community</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            doloribus, vel ipsum mollitia aliquid cumque commodi corrupti omnis
-            ipsam sit earum, dolore quisquam harum qui non, quasi ea voluptatum
-            debitis!
+            Join us in the Astro Discord to share with and get help from an
+            active, friendly community!
           </p>
-  
-      
-            <h3>Join our Community</h3>
-            <p>
-              Join us in the Astro Discord to share with and get help from an
-              active, friendly community!
-            </p>
-  
-            <ul>
-              <li>💬 Say hi in our #introduce-yourself channel!</li>
-              <li>
-                💬 Ask our Support Squad a question in our #support-threads
-                channel!
-              </li>
-              <li>
-                💬 Share what you've been working on in our #showcase channel!
-              </li>
-            </ul>
-       
+
+          <ul>
+            <li>💬 Say hi in our #introduce-yourself channel!</li>
+            <li>
+              💬 Ask our Support Squad a question in our #support-threads
+              channel!
+            </li>
+            <li>
+              💬 Share what you've been working on in our #showcase channel!
+            </li>
+          </ul>
         </div>
       </section>
 </Layout>
+
+<style>
+
+  .col-12{
+    -ms-flex:0 0 100%;
+    /* flex:0 0 100%; */
+    max-width:100%;
+    
+    position:relative;
+    width:100%;
+    padding-right:15px;
+    padding-left:15px
+  }
+
+  .white-text {
+    line-height: 0;
+    color: white; /* Set the text color to white */
+  }
+
+  .tm-intro-text { font-size: 2.6rem; }
+  .tm-text-primary { color: #06C; }
+  .tm-text-dark-gray { color: #68696A; }
+  .tm-name { font-size: 1.4rem; }
+
+  .tm-members {
+      display: flex;
+      justify-content: space-around;    
+    }
+  .tm-member { padding: 10px; }
+
+  @media (max-width: 1100px) {
+    .tm-members {
+      flex-wrap: wrap;
+      justify-content: start;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  .tm-member { margin-bottom: 50px; }
+  .tm-mb-8 { margin-bottom: 100px; }}
+
+  @media (max-width: 809px) {
+    .tm-members { max-width: 520px; }
+  }
+
+  @media (max-width: 549px) {
+    .tm-members { max-width: 260px; }
+  }
+
+  /* Common style */
+  .tm-member figure,
+  .tm-gallery-item figure {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 0;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .tm-member figure img,
+  .tm-gallery-item figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+  }
+
+  .tm-member figure figcaption,
+  .tm-gallery-item figure figcaption {
+    padding: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .tm-member figure figcaption::before,
+  .tm-member figure figcaption::after,
+  .tm-gallery-item figure figcaption::before,
+  .tm-gallery-item figure figcaption::after {
+    pointer-events: none;
+  }
+
+  .tm-member figure figcaption,
+  .tm-member figure figcaption > a,
+  .tm-gallery-item figure figcaption,
+  .tm-gallery-item figure figcaption > a  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Anchor will cover the whole item by default */
+  /* For some effects it will show as a button */
+  .tm-member figure figcaption > a,
+  .tm-gallery-item figure figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+  }
+
+  .teamMember .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      padding: 0 20px;
+      margin: 30px auto;
+  }
+  
+  @media (max-width: 500px) {
+  .teamMember .container {
+      grid-template-columns: 1fr;
+  }
+  }
+
+  .img-fluid {
+    max-width:100%;
+    height:auto
+  }
+  
+  .img-thumbnail {
+    padding:.25rem;
+    background-color:#fff;
+    border:1px solid #dee2e6;
+    border-radius:.25rem;
+    max-width:100%;
+    height:auto
+    }
+    
+    .figure {
+      display:inline-block
+      }
+    
+    .figure-img {
+      margin-bottom:.5rem;
+      line-height:1
+      }
+      
+    .figure-caption {
+      font-size:90%;
+      color:#6c757d
+      }
+  /*---------------*/
+  /***** Bubba *****/
+  /*---------------*/
+
+  figure.effect-bubba { background: var(--color-secondary); }
+
+  figure.effect-bubba img {
+    opacity: 1;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+  }
+
+  figure.effect-bubba:hover img { opacity: 0.4; }
+
+  figure.effect-bubba figcaption::before,
+  figure.effect-bubba figcaption::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    content: "";
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+
+  figure.effect-bubba figcaption::before {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+  }
+
+  figure.effect-bubba figcaption::after {
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+    -webkit-transform: scale(1, 0);
+    transform: scale(1, 0);
+  }
+
+  figure.effect-bubba h2 {
+    font-size: 1.5rem;
+    padding-top: 20%;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  figure.effect-bubba p {
+    width: 100%;
+    padding: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  figure.effect-bubba .tm-member-social {
+    font-size: 1.5rem;
+    padding-top: 20%;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  figure.effect-bubba .tm-member-social {
+    width: 100%;
+    padding: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  figure.effect-bubba:hover figcaption::before,
+  figure.effect-bubba:hover figcaption::after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  figure.effect-bubba:hover h2,
+  figure.effect-bubba:hover p {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  figure.effect-bubba:hover .tm-member-social {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .tm-member-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tm-member-social-link .tm-member-social-icon { transition: all 0.3s ease; }
+  .tm-member-social-link:hover .tm-member-social-icon { color: #d39e00; }
+
+  .tm-member-social-icon {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+  }
+
+ </style>

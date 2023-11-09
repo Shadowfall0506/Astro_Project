@@ -16,3 +16,20 @@ const planetCollection = defineCollection({
 export const collections = {
     planets: planetCollection,
 };
+
+const galCollection = defineCollection({
+    type: 'content',
+    schema: ({image}) => 
+        z.object({
+        author: z.string(),
+        categories: z.string(),
+        types: z.string(),
+        date: z.string(),
+        image: image(),
+        title: z.string() 
+    }),
+});
+
+export const gcollections = {
+    galleryStock: galCollection,
+};

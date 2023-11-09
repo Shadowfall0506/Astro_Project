@@ -5,10 +5,10 @@ export interface Props {
     contents: string[];
 }
 
-const { headings, contents, activeTextColor = '#3aaf90' } = Astro.props as Props;
+const { headings, contents, activeTextColor = '#333' } = Astro.props as Props;
 ---
 <!-- Tabs -->
-<div class="tabs">
+<div class="tabs rounded-md bg-blue-500">
     <ul class="tabs-header">
       {headings.map(heading => (
         <li>{heading}</li>
@@ -24,14 +24,16 @@ const { headings, contents, activeTextColor = '#3aaf90' } = Astro.props as Props
 <style>
     /* Tabs */
     .tabs {
+      border-radius: .25rem;
     margin-top: 30px;
     }
 
     .tabs-header {
     display: flex;
-    background: #333;
-    color: #fff;
+    background: bg;
+    color: hsl(0, 0%, 100%);
     padding: 10px 20px;
+    padding-left: 1rem;
     }
 
     .tabs-header li {
@@ -43,6 +45,7 @@ const { headings, contents, activeTextColor = '#3aaf90' } = Astro.props as Props
     font-size: 18px;
     padding: 20px;
     border: 1px solid #333;
+    border-radius: .25rem;
     font-weight: bold;
     background: #f4f4f4;
     }

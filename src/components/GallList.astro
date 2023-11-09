@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Gall from './Gall.astro';
+
+type Props = {
+    galleryStock: CollectionEntry<'galleryStock'>[];
+};
+
+const { galleryStock } = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid gap-4">
+        {galleryStock.map(gall => <Gall gall={gall} />)}
+    </div>
+</div>

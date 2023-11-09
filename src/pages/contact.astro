@@ -1,21 +1,72 @@
 ---
+const contactData = [
+    {title: "WHATSAPP US", link_text: "WHATSAPP US", link_url: "https://api.whatsapp.com/send?phone=9326743060&text=Hi,%20I%20want%20some%20information%20on", body: "New to Astro Tonight? Our team is here to help you. Just tell us how we can help.", image:"fab fa-whatsapp fa-4x tm-icon-1"},
+    {title: "CALL US", link_text: "CALL US", link_url: "tel:+91%209326743060", body: "New to Astro Tonight? Our team is here to help you. Just tell us how we can help.", image:"fas fa-phone-alt fa-4x tm-icon-1"},
+    {title: "PARTNER", link_text: "EMAIL US", link_url: "mailto:shadowfall0506@gmail.com", body: "If you are a expert and wish to partner with us, please reach out to us.", image:"far fa-handshake fa-4x tm-icon-1"}
+];
+
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import Showcase from "../components/Showcase.astro";
 ---
 
 <Layout title="Contact Us | Astro Tonight">
-    <Showcase heading="Contact Us" text="Explore the infinite possibilities of Astro"/>
+    <Showcase heading="Contact Us" text="We would love futher suggestions to enhance your experience."/>
     <section class="page-content">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>GET IN TOUCH</h2>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, vel
-                quas repudiandae optio voluptatibus dolore maxime sed nisi ad, quod
-                exercitationem. Magni facilis ducimus neque nostrum voluptas, eius,
-                aliquam ullam eligendi corporis perferendis dolor iusto veniam cumque
-                saepe iste porro, non optio amet. Enim esse porro incidunt sequi
-                consectetur vitae.
-            </p>            
+                We are standing by to answer any question you might have, no matter how small. Contact us and we’ll respond as soon as possible.
+            </p>
+            <section class="contact">
+                <div class="container">
+                {contactData.map(cdata => (
+                    <Card dark= {false}>
+                    <i class={cdata.image}></i>
+                        <h3>{cdata.title}</h3>
+                        <p>{cdata.body}</p>
+                        <a href = {cdata.link_url} ><button class="round-button" >{cdata.link_text}</button></a>
+                    </Card> 
+                ))}
+                </div>
+            </section>
         </div>
     </section>
 </Layout>
+
+<style>
+    /* Cards */
+    .contact .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 0 20px;
+        margin: 30px auto;
+    }
+
+    .round-button {
+        display: inline-block;
+        background-color: var(--color-secondary); /* Initial background color */
+        color: white;
+        border: none;
+        border-radius: 35px; /* Create a round shape */
+        padding: 12px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Add a transition effect for color change */
+    }
+
+    .round-button:hover {
+        background-color: var(--color-primary); /* Change the background color to blue on hover */
+    }
+    
+    @media (max-width: 500px) {
+    .contact .container {
+        grid-template-columns: 1fr;
+    }
+    }
+  </style>

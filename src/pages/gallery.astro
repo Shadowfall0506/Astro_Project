@@ -13,11 +13,11 @@ console.log(planets)
 //const planets = await Astro.glob('../content/planets/*.md');
 ---
 
-<Layout title="Planet Gallery | Astro Tonight">
-	<Showcase heading="Planet Gallery" text="Explore the infinite possibilities of Astro"/>
+<Layout title="Blog | Astro Tonight">
+	<Showcase heading="Blog" text="Explore the infinite possibilities of Astro"/>
 	<section class="page-content">
 		<div class="container">
-			<h2>Planet Gallery</h2>
+			<!-- <h2>Planet Gallery</h2> -->
 			{planets.map(planet => (
 				<PlanetList planets={planets}/>
 			))}
